@@ -1,8 +1,8 @@
 package org.javajunior.quest.dialog.start;
 
 import org.javajunior.quest.character.Player;
-import org.javajunior.quest.Utils;
 import org.javajunior.quest.dialog.State;
+import org.javajunior.quest.util.Input;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class StartDialog implements State {
     public State onEnter(State previousState) {
         player = new Player();
         System.out.println("Ты отважный воин! Введи имя героя");
-        player.setName(Utils.readString());
+        player.setName(Input.readString());
 
         return this;
     }

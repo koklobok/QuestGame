@@ -3,6 +3,7 @@ package org.javajunior.quest;
 
 import org.javajunior.quest.dialog.State;
 import org.javajunior.quest.dialog.start.HelloDialog;
+import org.javajunior.quest.util.Input;
 
 public class Game {
     public static void main(String[] args) {
@@ -21,7 +22,7 @@ public class Game {
                 for (int i = 0; i < moves.length; i++) {
                     System.out.println("" + (i + 1) + " - " + moves[i]);
                 }
-                moveNumber = Utils.readInt();
+                moveNumber = Input.readInt();
             }
 
             previousState = state;
