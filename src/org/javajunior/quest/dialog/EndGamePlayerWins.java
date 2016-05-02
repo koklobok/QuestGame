@@ -4,7 +4,7 @@ import org.javajunior.quest.character.PlayerAware;
 
 import java.util.List;
 
-public class EndGameFailed implements State {
+public class EndGamePlayerWins implements State {
     @Override
     public String[] getPossibleMoves() {
         return null;
@@ -17,7 +17,7 @@ public class EndGameFailed implements State {
 
     @Override
     public State onEnter(State previousState, PlayerAware playerAware) {
-        System.out.println("Поджав хвост ты ушел с поля боя, дракон в то время съел всю деревню.");
+        System.out.println("Ты победил дракона! Люди в твою честь назвали улицу.");
         return null;
     }
 }

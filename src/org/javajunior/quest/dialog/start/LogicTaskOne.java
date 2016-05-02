@@ -3,7 +3,7 @@ package org.javajunior.quest.dialog.start;
 
 public class LogicTaskOne {
 
-    int answer = 0;
+    private int answer = 0;
 
     public LogicTaskOne(){
         System.out.println("Для того чтобы пройти дальше ты должен разгадать следующюю задачу: \n");

@@ -1,5 +1,7 @@
 package org.javajunior.quest.dialog;
 
+import org.javajunior.quest.character.PlayerAware;
+
 import java.util.List;
 
 /**
@@ -11,6 +13,6 @@ public interface State {
 
     List<State> getTransitionTable();
 
-    State onEnter(State previousState) throws InterruptedException;
+    State onEnter(State previousState, PlayerAware playerAware);
 
 }

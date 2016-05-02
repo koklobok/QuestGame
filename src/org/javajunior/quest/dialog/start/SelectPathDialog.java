@@ -1,14 +1,13 @@
 package org.javajunior.quest.dialog.start;
 
-import org.javajunior.quest.dialog.EndGameFailed;
+import org.javajunior.quest.character.PlayerAware;
+import org.javajunior.quest.dialog.EndGameDragonWins;
 import org.javajunior.quest.dialog.State;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by krunch on 02.05.2016.
- */
+
 public class SelectPathDialog implements State {
     @Override
     public String[] getPossibleMoves() {
@@ -18,13 +17,13 @@ public class SelectPathDialog implements State {
     @Override
     public List<State> getTransitionTable() {
         List<State> result = new ArrayList<>();
-        result.add(new EndGameFailed());
+        result.add(new GoToForest());
         result.add(new GoToBog());
         return result;
     }
 
     @Override
-    public State onEnter(State previousState) {
+    public State onEnter(State previousState, PlayerAware playerAware) {
         System.out.println("\tДля того чтобы добратся до дракона тебе придется пройти сложный но захватывающий путь.\n" +
                  "ты стоишь на распутье двух дорог.\nОдна через дремучий лес, вторая через зловонное болото.\n" +
                 "Выбери какием путем ты хочешь добраться к дракону.\n");

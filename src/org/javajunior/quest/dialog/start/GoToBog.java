@@ -1,5 +1,6 @@
 package org.javajunior.quest.dialog.start;
 
+import org.javajunior.quest.character.PlayerAware;
 import org.javajunior.quest.dialog.State;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class GoToBog implements State {
     }
 
     @Override
-    public State onEnter(State previousState) {
+    public State onEnter(State previousState, PlayerAware playerAware) {
         System.out.println("Странник твоя смелость не знает предела, ты попал в вязкое, мокрое и ужасное болото.\n" +
                 "Для того что бы пройти через него тебе придется решить несколько задач.\n");
         return this;
