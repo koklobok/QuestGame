@@ -6,7 +6,7 @@ import org.javajunior.quest.dialog.start.HelloDialog;
 import org.javajunior.quest.util.Input;
 
 public class Game {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         State state = new HelloDialog();
         State previousState = null;
         while (true) {

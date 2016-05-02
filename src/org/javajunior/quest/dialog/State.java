@@ -11,6 +11,6 @@ public interface State {
 
     List<State> getTransitionTable();
 
-    State onEnter(State previousState);
+    State onEnter(State previousState) throws InterruptedException;
 
 }
