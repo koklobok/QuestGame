@@ -3,6 +3,7 @@ package org.javajunior.quest.dialog.start;
 import org.javajunior.quest.character.Player;
 import org.javajunior.quest.character.PlayerAware;
 import org.javajunior.quest.character.Weapon;
+import org.javajunior.quest.dialog.EndGameDragonWins;
 import org.javajunior.quest.dialog.EndGameFailed;
 import org.javajunior.quest.dialog.EndGamePlayerWins;
 import org.javajunior.quest.dialog.State;
@@ -40,7 +41,7 @@ public class BattleWithDragon implements State {
                     System.out.println("" + (i + 1) + " - " + weapons[i]);
                 }
                 inputNumber = Input.readInt();
-                if ((inputNumber > 0) && (inputNumber < weapons.length)) {
+                if ((inputNumber > 0) && (inputNumber <= weapons.length)) {
                     break;
                 }
             }
@@ -54,6 +55,7 @@ public class BattleWithDragon implements State {
             }
 
             int dragonHit = random.nextInt(maxHitDragon);
+            player.consumeHit(dragonHit);
             System.out.println("\nДракон наносит " + dragonHit + " пунктов удара.");
             if (player.getHealth() <= 0 ) {
                 break;
@@ -66,7 +68,7 @@ public class BattleWithDragon implements State {
         if (dragonHealth <= 0) {
             return new EndGamePlayerWins();
         } else {
-            return new EndGameFailed();
+            return new EndGameDragonWins();
         }
     }
 }

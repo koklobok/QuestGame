@@ -2,6 +2,7 @@ package org.javajunior.quest.dialog.start;
 
 import org.javajunior.quest.character.PlayerAware;
 import org.javajunior.quest.dialog.EndGameDragonWins;
+import org.javajunior.quest.dialog.EndGameFailed;
 import org.javajunior.quest.dialog.State;
 import org.javajunior.quest.util.Input;
 
@@ -18,7 +19,7 @@ public class TaskOne implements State {
     public List<State> getTransitionTable() {
         List<State> result = new ArrayList<>();
         result.add(new TaskTwo());
-        result.add(new EndGameDragonWins());
+        result.add(new EndGameFailed());
         return result;
     }
 

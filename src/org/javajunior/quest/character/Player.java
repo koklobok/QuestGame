@@ -46,7 +46,7 @@ public class Player {
                 System.out.println("" + (i + 1) + " - " + races[i]);
             }
             inputNumber = Input.readInt();
-            if ((inputNumber > 0) && (inputNumber < races.length)) {
+            if ((inputNumber > 0) && (inputNumber <= races.length)) {
                 break;
             }
         }
