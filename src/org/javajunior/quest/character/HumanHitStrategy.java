@@ -1,5 +1,8 @@
 package org.javajunior.quest.character;
 
+/**
+ * Implements hitting strategy by human
+ */
 public class HumanHitStrategy extends AbstractHitStrategy {
     @Override
     public int hit(Weapon weapon) {

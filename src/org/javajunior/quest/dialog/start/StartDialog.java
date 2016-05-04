@@ -2,13 +2,12 @@ package org.javajunior.quest.dialog.start;
 
 import org.javajunior.quest.character.Player;
 import org.javajunior.quest.character.PlayerAware;
-import org.javajunior.quest.dialog.AbstractState;
-import org.javajunior.quest.dialog.State;
+import org.javajunior.quest.dialog.SelectOptionDialogLink;
+import org.javajunior.quest.dialog.DialogLink;
 import org.javajunior.quest.dialog.path.SelectPathDialog;
 import org.javajunior.quest.util.Input;
 
-public class StartDialog extends AbstractState {
-    private Player player;
+public class StartDialog extends SelectOptionDialogLink {
 
     @Override
     protected void printHello() {
@@ -16,9 +15,9 @@ public class StartDialog extends AbstractState {
     }
 
     @Override
-    public State onEnter(State previousState, PlayerAware playerAware) {
+    public DialogLink nextDialog(DialogLink previousState, PlayerAware playerAware) {
         printHello();
-        player = new Player();
+        Player player = new Player();
 
         player.setName(Input.readString());
         player.selectRace();
@@ -27,4 +26,8 @@ public class StartDialog extends AbstractState {
         return new SelectPathDialog();
     }
 
+    @Override
+    public String getDescription() {
+        return "Пойти навалять";
+    }
 }

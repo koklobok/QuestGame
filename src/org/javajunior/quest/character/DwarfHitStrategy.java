@@ -1,5 +1,8 @@
 package org.javajunior.quest.character;
 
+/**
+ * Implements hitting strategy by dwarf
+ */
 public class DwarfHitStrategy extends AbstractHitStrategy {
     @Override
     public int hit(Weapon weapon) {

@@ -3,9 +3,8 @@ package org.javajunior.quest;
 
 import org.javajunior.quest.character.Player;
 import org.javajunior.quest.character.PlayerAware;
-import org.javajunior.quest.dialog.State;
+import org.javajunior.quest.dialog.DialogLink;
 import org.javajunior.quest.dialog.start.HelloDialog;
-import org.javajunior.quest.util.Input;
 
 public class Game  implements PlayerAware{
     private Player player;
@@ -15,11 +14,11 @@ public class Game  implements PlayerAware{
     }
 
     public void run() {
-        State state = new HelloDialog();
-        State previousState = null;
+        DialogLink state = new HelloDialog();
+        DialogLink previousState = null;
         while (true) {
 
-            state = state.onEnter(previousState, this);
+            state = state.nextDialog(previousState, this);
             if (state == null) {
                 break;
             }

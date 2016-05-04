@@ -1,23 +1,17 @@
 package org.javajunior.quest.dialog.start;
 
-import org.javajunior.quest.character.PlayerAware;
-import org.javajunior.quest.dialog.AbstractState;
+import org.javajunior.quest.dialog.SelectOptionDialogLink;
 import org.javajunior.quest.dialog.end.EndGameFailed;
-import org.javajunior.quest.dialog.State;
+import org.javajunior.quest.dialog.DialogLink;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HelloDialog extends AbstractState {
+public class HelloDialog extends SelectOptionDialogLink {
 
     @Override
-    public String[] getPossibleMoves() {
-        return new String[]{"Пойти навалять", "Уйти с позором"};
-    }
-
-    @Override
-    public List<State> getTransitionTable() {
-        List<State> flow = new ArrayList<>();
+    public List<DialogLink> getOptions() {
+        List<DialogLink> flow = new ArrayList<>();
         flow.add(new StartDialog());
         flow.add(new EndGameFailed());
         return flow;
@@ -31,4 +25,8 @@ public class HelloDialog extends AbstractState {
                 "\nи отомстить. Если ты храбр и готов то пойди и наваляй ему!!!\n");
     }
 
+    @Override
+    public String getDescription() {
+        return "Начало игры";
+    }
 }

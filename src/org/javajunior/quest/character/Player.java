@@ -2,6 +2,9 @@ package org.javajunior.quest.character;
 
 import org.javajunior.quest.util.Input;
 
+/**
+ * This class represents player in a game
+ */
 public class Player {
 
     private String name;

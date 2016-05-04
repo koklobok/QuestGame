@@ -3,20 +3,26 @@ package org.javajunior.quest.dialog.end;
 import org.javajunior.quest.character.Player;
 import org.javajunior.quest.character.PlayerAware;
 import org.javajunior.quest.character.Weapon;
-import org.javajunior.quest.dialog.AbstractState;
-import org.javajunior.quest.dialog.State;
+import org.javajunior.quest.dialog.SelectOptionDialogLink;
+import org.javajunior.quest.dialog.DialogLink;
 import org.javajunior.quest.util.Input;
+import org.javajunior.quest.util.ThreadUtils;
 
 import java.util.Random;
 
-public class BattleWithDragon extends AbstractState {
+public class BattleWithDragon extends SelectOptionDialogLink {
     private Random random = new Random(17);
 
     @Override
     protected void printHello() {}
 
     @Override
-    public State onEnter(State previousState, PlayerAware playerAware) {
+    public String getDescription() {
+        return "Сразится с драконом";
+    }
+
+    @Override
+    public DialogLink nextDialog(DialogLink previousState, PlayerAware playerAware) {
         int dragonHealth = 100;
         int maxHitDragon = 20;
 
@@ -53,6 +59,7 @@ public class BattleWithDragon extends AbstractState {
 
             System.out.println("У тебя осталось: " + player.getHealth() + " здоровья; у дракона: " + dragonHealth
                     +"\n***********************\n");
+            ThreadUtils.sleep(3500);
         }
 
         if (dragonHealth <= 0) {

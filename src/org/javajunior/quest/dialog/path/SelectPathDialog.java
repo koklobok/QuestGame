@@ -1,24 +1,19 @@
 package org.javajunior.quest.dialog.path;
 
-import org.javajunior.quest.character.PlayerAware;
-import org.javajunior.quest.dialog.AbstractState;
-import org.javajunior.quest.dialog.State;
+import org.javajunior.quest.dialog.SelectOptionDialogLink;
+import org.javajunior.quest.dialog.DialogLink;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SelectPathDialog extends AbstractState {
-    @Override
-    public String[] getPossibleMoves() {
-        return new String[]{"Пойти через дремучий лес","Пойти через непроходимое, вязкое болото \n"};
-    }
+public class SelectPathDialog extends SelectOptionDialogLink {
 
     @Override
-    public List<State> getTransitionTable() {
-        List<State> result = new ArrayList<>();
+    public List<DialogLink> getOptions() {
+        List<DialogLink> result = new ArrayList<>();
         result.add(new GoToForest());
-        result.add(new GoToBog());
+        result.add(new GoToSwamp());
         return result;
     }
 
@@ -29,4 +24,8 @@ public class SelectPathDialog extends AbstractState {
                 "Выбери какием путем ты хочешь добраться к дракону.\n");
     }
 
+    @Override
+    public String getDescription() {
+        return "Вернутся к выбору пути";
+    }
 }
