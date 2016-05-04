@@ -1,29 +1,19 @@
-package org.javajunior.quest.dialog.start;
+package org.javajunior.quest.dialog.end;
 
 import org.javajunior.quest.character.Player;
 import org.javajunior.quest.character.PlayerAware;
 import org.javajunior.quest.character.Weapon;
-import org.javajunior.quest.dialog.EndGameDragonWins;
-import org.javajunior.quest.dialog.EndGameFailed;
-import org.javajunior.quest.dialog.EndGamePlayerWins;
+import org.javajunior.quest.dialog.AbstractState;
 import org.javajunior.quest.dialog.State;
 import org.javajunior.quest.util.Input;
 
-import java.util.List;
 import java.util.Random;
 
-public class BattleWithDragon implements State {
+public class BattleWithDragon extends AbstractState {
     private Random random = new Random(17);
 
     @Override
-    public String[] getPossibleMoves() {
-        return new String[0];
-    }
-
-    @Override
-    public List<State> getTransitionTable() {
-        return null;
-    }
+    protected void printHello() {}
 
     @Override
     public State onEnter(State previousState, PlayerAware playerAware) {

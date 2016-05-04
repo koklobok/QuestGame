@@ -1,19 +1,9 @@
-package org.javajunior.quest.dialog;
+package org.javajunior.quest.dialog.end;
 
 import org.javajunior.quest.character.PlayerAware;
-
-import java.util.List;
+import org.javajunior.quest.dialog.State;
 
 public class EndGameFailed implements State {
-    @Override
-    public String[] getPossibleMoves() {
-        return null;
-    }
-
-    @Override
-    public List<State> getTransitionTable() {
-        return null;
-    }
 
     @Override
     public State onEnter(State previousState, PlayerAware playerAware) {

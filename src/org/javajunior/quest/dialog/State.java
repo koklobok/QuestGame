@@ -9,10 +9,6 @@ import java.util.List;
  */
 public interface State {
 
-    String[] getPossibleMoves();
-
-    List<State> getTransitionTable();
-
     State onEnter(State previousState, PlayerAware playerAware);
 
 }

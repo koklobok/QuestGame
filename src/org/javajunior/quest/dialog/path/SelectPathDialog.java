@@ -1,14 +1,14 @@
-package org.javajunior.quest.dialog.start;
+package org.javajunior.quest.dialog.path;
 
 import org.javajunior.quest.character.PlayerAware;
-import org.javajunior.quest.dialog.EndGameDragonWins;
+import org.javajunior.quest.dialog.AbstractState;
 import org.javajunior.quest.dialog.State;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SelectPathDialog implements State {
+public class SelectPathDialog extends AbstractState {
     @Override
     public String[] getPossibleMoves() {
         return new String[]{"Пойти через дремучий лес","Пойти через непроходимое, вязкое болото \n"};
@@ -23,10 +23,10 @@ public class SelectPathDialog implements State {
     }
 
     @Override
-    public State onEnter(State previousState, PlayerAware playerAware) {
+    protected void printHello() {
         System.out.println("\tДля того чтобы добратся до дракона тебе придется пройти сложный но захватывающий путь.\n" +
                  "ты стоишь на распутье двух дорог.\nОдна через дремучий лес, вторая через зловонное болото.\n" +
                 "Выбери какием путем ты хочешь добраться к дракону.\n");
-        return this;
     }
+
 }

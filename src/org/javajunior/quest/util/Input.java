@@ -3,6 +3,7 @@ package org.javajunior.quest.util;
 
 import org.javajunior.quest.character.Race;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Input {
@@ -14,7 +15,16 @@ public class Input {
     }
 
     public static int readInt() {
-        return sc.nextInt();
+        int result;
+        try {
+            result = sc.nextInt();
+        } catch (InputMismatchException e) {
+            sc.next(); // clear input
+            System.out.println("Введите число");
+            result = readInt();
+        }
+
+        return result;
     }
 
     public static <T extends Enum<T>> Enum<T> readEnumValue(Class<T> clazz) {

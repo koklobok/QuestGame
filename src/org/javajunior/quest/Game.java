@@ -18,31 +18,13 @@ public class Game  implements PlayerAware{
         State state = new HelloDialog();
         State previousState = null;
         while (true) {
+
             state = state.onEnter(previousState, this);
             if (state == null) {
                 break;
             }
 
-            String[] moves = state.getPossibleMoves();
-            if ((moves != null) && (moves.length > 0)) {
-                System.out.println("Сделай ход:");
-
-                int moveNumber = 0;
-                while ((moveNumber <= 0) || (moveNumber > moves.length)) {
-                    for (int i = 0; i < moves.length; i++) {
-                        System.out.println("" + (i + 1) + " - " + moves[i]);
-                    }
-                    moveNumber = Input.readInt();
-                }
-
-                previousState = state;
-
-                if (moveNumber > 0) {
-                    state = state.getTransitionTable().get(moveNumber - 1);
-                } else {
-                    break;
-                }
-            }
+            previousState = state;
 
         }
 
@@ -58,4 +40,5 @@ public class Game  implements PlayerAware{
     public Player getPlayer() {
         return player;
     }
+
 }

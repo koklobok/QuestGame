@@ -1,8 +1,7 @@
-package org.javajunior.quest.dialog.start;
+package org.javajunior.quest.dialog.task;
 
 
-public class LogicTaskTwo {
-    private int answer = 0;
+public class LogicTaskTwo implements LogicTask{
 
     public LogicTaskTwo() {
         System.out.println("Для того чтобы подраться с драконом ты должен разгадать еще одну задачу: \n");
@@ -14,11 +13,21 @@ public class LogicTaskTwo {
         System.out.println("********************************************************************");
     }
 
-    public int getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(int answer) {
-        this.answer = answer;
+    @Override
+    public boolean checkAnswer(int answer) {
+        System.out.println("Твой ответ :" + answer);
+        try {
+            Thread.sleep(5000);
+            if (answer != 320) {
+                System.out.println("Твой ответ не верен попробуй еще раз\n");
+                Thread.sleep(1000);
+                return false;
+            }
+            System.out.println("Ты ответил правильно, теперь ты сможешь сразится с драконом\n");
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 }
